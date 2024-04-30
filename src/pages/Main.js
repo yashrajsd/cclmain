@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect('http://3.94.186.69:3001');
 
 const posts = [
   {
@@ -30,7 +30,7 @@ const Main = () => {
   }
 
   const getPosts =async()=>{
-    const response = await axios.get('http://localhost:3001/api/getposts')
+    const response = await axios.get('http://3.94.186.69:3001/api/getposts')
     setPostList(response.data.posts)
     console.log(response.data)
   }
@@ -50,7 +50,7 @@ const Main = () => {
       return alert('empty input');
     }
     try{
-      const response = await axios.post('http://localhost:3001/api/post',{username,tweet})
+      const response = await axios.post('http://3.94.186.69:3001/api/post',{username,tweet})
       socket.emit('posted','yay');
       if(response.status==200){
         setTweet('');
