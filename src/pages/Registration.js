@@ -21,7 +21,7 @@ const Registration = ({setSignin}) => {
 
     const handleSignIn=async()=>{
       try{
-        const response =await axios.post("http://localhost:3001/api/userlogin",{password,username});
+        const response =await axios.post("http://3.94.186.69:3001/api/userlogin",{password,username});
         if(response.status==200){
           localStorage.setItem('token',response.data);
           setSignin(true);
@@ -45,7 +45,7 @@ const Registration = ({setSignin}) => {
     const handleSignUp=async()=>{
         try{
             alert('working')
-            const response = await axios.post('http://localhost:3001/api/usersignup',{id,username,password,gmail});
+            const response = await axios.post('http://3.94.186.69:3001/api/usersignup',{id,username,password,gmail});
             if(response.status==200){
               setSignin(true);
               navigate('/app');
